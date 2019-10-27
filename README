@@ -1,0 +1,15 @@
+@VGKShotBot is a Twitter bot that sends a tweet after every VGK shot attempt with information about the shot.
+
+Information included, in no particular order:
+
+- Goal?
+- EV/PP/SH
+- Period/Time
+- Shooter/Assists
+- Distance
+- Angle
+- Type of shot (Wrist, Slap, Tip-in, etc)
+- Eventually: What % of the time is that shot a goal?
+- Eventually: Official media of goals/highlights attached
+
+Last season (2018-19) it looks like shot attempts per game ranged between 25-50, so nothing too crazy.
