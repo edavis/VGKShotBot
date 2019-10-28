@@ -14,8 +14,8 @@ logging.basicConfig(
 )
 
 def main():
-    pbp_url = 'http://statsapi.web.nhl.com/api/v1/game/2019020171/feed/live/diffPatch'
-    end_timecode = datetime.datetime(2019, 10, 27, 21, 07, 00)
+    pbp_url = 'http://statsapi.web.nhl.com/api/v1/game/2019020176/feed/live/diffPatch'
+    end_timecode = datetime.datetime(2019, 10, 28, 0, 5, 0)
     pbp_url_params = {'endTimecode': end_timecode.strftime('%Y%m%d_%H%M%S')}
     pbp_doc = requests.get(pbp_url, params=pbp_url_params).json()
 
@@ -29,13 +29,6 @@ def main():
             'endTimecode': end_timecode.strftime('%Y%m%d_%H%M%S'),
         }
         pbp_diff = requests.get(pbp_url, params=pbp_url_params).json()
-
-        if not pbp_diff:
-            logging.debug('JSON diff returned? No')
-            time.sleep(REFRESH_INTERVAL)
-            continue
-        else:
-            logging.debug('JSON diff returned? Yes')
 
         for diff_wrapper in pbp_diff:
             patch = jsonpatch.JsonPatch(diff_wrapper['diff'])
